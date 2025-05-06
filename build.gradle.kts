@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "dev.emirman.lib"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0"
 
 val telegramBotsVersion = "8.3.0"
 val jacksonVersion = "2.19.0"
