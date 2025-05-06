@@ -1,0 +1,4 @@
+spring:
+  telegram:
+    bot:
+      token: ${TELEGRAM_BOT_TOKEN}
