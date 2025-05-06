@@ -3,12 +3,10 @@ import java.net.URI
 plugins {
     kotlin("jvm") version "2.1.20"
     id("maven-publish")
-    id("org.springframework.boot") version "3.4.5"
-    id("io.spring.dependency-management") version "1.1.7"
 }
 
 group = "dev.emirman.lib"
-version = "1.0.0"
+version = "1.0.0-SNAPSHOT"
 
 val telegramBotsVersion = "8.3.0"
 val jacksonVersion = "2.19.0"
@@ -22,7 +20,7 @@ dependencies {
     implementation("org.telegram:telegrambots-client:$telegramBotsVersion")
     implementation("org.telegram:telegrambots-springboot-longpolling-starter:$telegramBotsVersion")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.5")
     testImplementation(kotlin("test"))
 }
 
@@ -46,7 +44,7 @@ publishing {
         }
     }
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>("mavenJava") {
             from(components["java"])
             groupId = project.group.toString()
             artifactId = project.name
@@ -54,9 +52,6 @@ publishing {
 
             // Add the sources jar
             artifact(tasks.named("kotlinSourcesJar"))
-
-            // Add the javadoc jar
-            artifact(tasks.named("javadoc"))
         }
     }
 }
